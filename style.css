@@ -1,49 +1,69 @@
 body {
-        background-color: rgb(42, 32, 68);
+        background-color: #15151e;
         
 
-
+}
 .container {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
+        /*justify-content: center;*/
+        justify-content: flex-start
+
         
+}
+
+/* Responsive Layout */
+@media (max-width: 800px) {
+        .container {
+                flex-direction: column;
+                text-align: center;
+        }
+
 }
 
 .left {
         flex: 1;
-        text-align: right;
+        text-align: center;
         font-size: 50px;
         line-height: 30%;
-        padding:10% 0% 0% 0%;
         color: #E5B026
 
 }
 
 .right {
         flex: 1;
-        justify-content: center;
+       /* justify-content: center; */
         text-align: left;
-        align-items: center;
+        align-items: space-evenly;
         color: #E5B026;
-        padding: 10% 10% 2% 10%;
 
 
 }
 
+/* This controls the play button */
 .play {
-        display: inline-flex;
+        /*display: inline-flex; */
+        display: block;
                 padding: 8px 16px;
-                justify-content: center;
-                align-items: center;
+                justify-content: center; */
+               align-items: center;
                 gap: 10px;
         
                 border-radius: 6px;
-                border: 2px solid #000;
-                background: #E5B026;
-}
+                border: 2px solid #E5B026;
+                background: #15151e;
+                color: #E5B026;
+                text-align: center;
 
 }
+
+button:hover {
+        color: #15151e;
+        background: #E5B026;
+}
+
+
+
+
 
 
