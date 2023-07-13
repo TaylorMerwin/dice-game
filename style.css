@@ -1,69 +1,54 @@
 body {
-        background-color: #15151e;
-        
-
+  background-color: #15151e;
 }
 .container {
-        display: flex;
-        flex-direction: row;
-        /*justify-content: center;*/
-        justify-content: flex-start
-
-        
+  display: flex;
+  flex-direction: row;
+  /*justify-content: center;*/
+  justify-content: flex-start;
 }
 
 /* Responsive Layout */
 @media (max-width: 800px) {
-        .container {
-                flex-direction: column;
-                text-align: center;
-        }
-
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .left {
-        flex: 1;
-        text-align: center;
-        font-size: 50px;
-        line-height: 30%;
-        color: #E5B026
-
+  flex: 1;
+  text-align: center;
+  font-size: 50px;
+  line-height: 30%;
+  color: #e5b026;
 }
 
 .right {
-        flex: 1;
-       /* justify-content: center; */
-        text-align: left;
-        align-items: space-evenly;
-        color: #E5B026;
-
-
+  flex: 1;
+  /* justify-content: center; */
+  text-align: left;
+  align-items: space-evenly;
+  color: #e5b026;
 }
 
 /* This controls the play button */
 .play {
-        /*display: inline-flex; */
-        display: block;
-                padding: 8px 16px;
-                justify-content: center; */
-               align-items: center;
-                gap: 10px;
-        
-                border-radius: 6px;
-                border: 2px solid #E5B026;
-                background: #15151e;
-                color: #E5B026;
-                text-align: center;
+  /*display: inline-flex; */
+  display: block;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
+  border-radius: 6px;
+  border: 2px solid #e5b026;
+  background: #15151e;
+  color: #e5b026;
+  text-align: center;
 }
 
 button:hover {
-        color: #15151e;
-        background: #E5B026;
+  color: #15151e;
+  background: #e5b026;
 }
-
-
-
-
-
-
