@@ -3,20 +3,21 @@ body {
 }
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   /*justify-content: center;*/
   justify-content: flex-start;
 }
 
-/* Responsive Layout */
+/* Responsive Layout 
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
     text-align: center;
   }
 }
+*/
 
-.left {
+.welcome {
   flex: 1;
   text-align: center;
   font-size: 50px;
@@ -24,19 +25,22 @@ body {
   color: #e5b026;
 }
 
-.right {
+.description {
   flex: 1;
   justify-content: center;
-  text-align: left;
-  align-items: space-evenly;
+  text-align: center;
+  /*align-items: space-evenly; */
   color: #e5b026;
-  /*padding: 5%, 25%, 5%, 5%;*/
+  p {
+    color: blue;
+    padding: 0%, 50%, 0%, 50%;
+  }
 }
 
 /* This controls the play button */
 .play {
   /*display: inline-flex; */
-  display: block;
+  /*display: block;*/
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
