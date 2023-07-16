@@ -1,24 +1,15 @@
 body {
   background-color: #15151e;
 }
+
 .container {
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
-
-/* Responsive Layout 
-@media (max-width: 800px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-*/
 
 .welcome {
-  flex: 1;
   text-align: center;
   font-size: 50px;
   line-height: 30%;
@@ -26,34 +17,33 @@ body {
 }
 
 .description {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  /*align-items: space-evenly; */
+  align-items: center;
+  text-align: left;
   color: #e5b026;
-  p {
-    color: blue;
-    padding: 0%, 50%, 0%, 50%;
-  }
+  width: min(50%, 800px);
 }
 
-/* This controls the play button */
-.play {
-  /*display: inline-flex; */
-  /*display: block;*/
+ .play-button {
+  /* Layout */
+  display: inline-flex; 
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
+  /* Style */
   border-radius: 6px;
   border: 2px solid #e5b026;
   background: #15151e;
+  /*Button Text*/
   color: #e5b026;
   text-align: center;
+  padding-left: 50;
 }
 
-button:hover {
+.play-button:hover {
   color: #15151e;
   background: #e5b026;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="index.js"></script>
-    <title>Dice Game</title>
+    <title>Pigs of War</title>
   </head>
   <body>
     <div id="welcomePage">
@@ -23,14 +23,26 @@
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.
           </p>
-          <button onclick="myClick()" class="play">
-            <strong>Play</strong>
-          </button>
+
+            <button onclick="myClick()" class="play-button">
+              <strong>Play</strong>
+            </button>
         </div>
       </div>
     </div>
     <div id="setupPage">
-      <div class="container"></div>
+      <div class="container">
+        <form>
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name"><br>
+        </form>
+      </div>
+    </div>
+    <div id="gamePage">
+      <div class="container">
+        <div ></div>
+        <h1 class="turnLabel">Player's turn</h1>
+      </div>
     </div>
   </body>
 </html>
