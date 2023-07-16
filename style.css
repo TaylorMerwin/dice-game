@@ -26,7 +26,7 @@ body {
   width: min(50%, 800px);
 }
 
- .play-button {
+.play-button {
   /* Layout */
   display: inline-flex; 
   padding: 8px 16px;
@@ -47,3 +47,18 @@ body {
   color: #15151e;
   background: #e5b026;
 }
+
+/*Game Page*/
+
+.top {
+  color: #e5b026;
+}
+
+.middle {
+  color: #e5b026;
+}
+
+.bottom {
+  color: #e5b026;
+}
+

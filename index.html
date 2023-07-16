@@ -24,24 +24,31 @@
             pariatur.
           </p>
 
-            <button onclick="myClick()" class="play-button">
-              <strong>Play</strong>
-            </button>
+          <button onclick="myClick()" class="play-button">
+            <strong>Play</strong>
+          </button>
         </div>
       </div>
     </div>
     <div id="setupPage">
       <div class="container">
         <form>
-          <label for="name">Name:</label><br>
-          <input type="text" id="name" name="name"><br>
+          <label for="name">Name:</label><br />
+          <input type="text" id="name" name="name" /><br />
         </form>
       </div>
     </div>
     <div id="gamePage">
       <div class="container">
-        <div ></div>
-        <h1 class="turnLabel">Player's turn</h1>
+        <div class="top">
+          <h1 class="turnLabel">Player's turn</h1>
+        </div>
+        <div class="middle">
+          <label for="dice">6</label>
+        </div>
+        <div class="bottom">
+          <button class="rollButton">Roll</button>
+          <button class="holdButton">Hold</button>
       </div>
     </div>
   </body>
