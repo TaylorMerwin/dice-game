@@ -26,5 +26,5 @@ function rollDice() {
 }
 
 function updateRollLabel(number) {
-  document.getElementById("roll-label").innerText = number;
+  document.getElementById("roll-label").innerText = "You rolled a " + number;
 }

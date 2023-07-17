@@ -1,5 +1,5 @@
 body {
-  background-color: #15151e;
+  background-color: #282a36;
 
   font-family: "shift", serif;
   font-weight: 500;
@@ -18,7 +18,7 @@ body {
   text-align: center;
   font-size: 50px;
   line-height: 30%;
-  color: #e5b026;
+  color: #ffb86c;
 }
 
 .description {
@@ -27,7 +27,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: left;
-  color: #e5b026;
+  color: #ffb86c;
   width: min(50%, 800px);
 }
 
@@ -40,17 +40,17 @@ body {
   gap: 10px;
   /* Style */
   border-radius: 6px;
-  border: 2px solid #e5b026;
+  border: 2px solid #ffb86c;
   background: #15151e;
   /*Button Text*/
-  color: #e5b026;
+  color: #ffb86c;
   text-align: center;
   padding-left: 50;
 }
 
 .app-button:hover {
   color: #15151e;
-  background: #e5b026;
+  background: #ffb86c;
 }
 
 .hold-button {
@@ -78,27 +78,69 @@ body {
 /*Game Page*/
 
 .top {
-  color: #e5b026;
+  color: #ffb86c;
 }
 
 .middle {
-  color: #e5b026;
+  color: #ffb86c;
   justify-content: center;
-  text-align: center;
+  text-align: ffb86ccenter;
 }
 
 #roll-label {
   font-size: larger;
-  color: green;
+  color: #50fa7b;
 }
+
+.dice-container {
+        display: flex;
+
+}
+
 
 .dice {
   width: 80px;
   height: 80px;
-  position: relative;
+  /*position: relative;*/
   margin: 5px;
   border-radius: 10px;
+  background-color: antiquewhite;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.dot {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: black;
+}
+
+.face1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.face2 {
+        display: flex;
+        justify-content: space-between;
+}
+
+.face3 {
+
+}
+
+.face4 {
+
+}
+
+.face5 {
+
+}
+
+.face6 {
+
 }
 
 .bottom {
