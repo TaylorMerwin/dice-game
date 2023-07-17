@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
     <title>Pigs of War</title>
   </head>
   <body>
@@ -24,7 +23,7 @@
             pariatur.
           </p>
 
-          <button onclick="myClick()" class="play-button">
+          <button onclick="myClick()" class="app-button">
             <strong>Play</strong>
           </button>
         </div>
@@ -44,12 +43,17 @@
           <h1 class="turnLabel">Player's turn</h1>
         </div>
         <div class="middle">
-          <label for="dice">6</label>
+          <label id="roll-label">0</label>
         </div>
         <div class="bottom">
-          <button class="rollButton">Roll</button>
-          <button class="holdButton">Hold</button>
+          <button onclick="clickRollButton()" class="app-button">
+            Roll
+          </button>
+          <button class="hold-button">
+            Hold
+          </button>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

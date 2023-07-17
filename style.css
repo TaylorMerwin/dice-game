@@ -26,9 +26,9 @@ body {
   width: min(50%, 800px);
 }
 
-.play-button {
+.app-button {
   /* Layout */
-  display: inline-flex; 
+  display: inline-flex;
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
@@ -43,9 +43,31 @@ body {
   padding-left: 50;
 }
 
-.play-button:hover {
+.app-button:hover {
   color: #15151e;
   background: #e5b026;
+}
+
+.hold-button {
+  /* Layout */
+  display: inline-flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* Style */
+  border-radius: 6px;
+  border: 2px solid #e54326;
+  background: #15151e;
+  /*Button Text*/
+  color: #e54326;
+  text-align: center;
+  padding-left: 50;
+}
+
+.hold-button:hover {
+        color: #15151e;
+        background: #e54326;
 }
 
 /*Game Page*/
@@ -61,4 +83,3 @@ body {
 .bottom {
   color: #e5b026;
 }
-

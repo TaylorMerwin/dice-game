@@ -13,3 +13,22 @@ function myClick() {
   document.getElementById("welcomePage").style.display = "none";
   document.getElementById("gamePage").style.display = "block";
 }
+
+function clickRollButton() {
+
+  let rollValue = rollDice();
+  //updateRollLabel(rollValue);
+
+}
+
+//Generates a random number between 1 and 6
+function rollDice() {
+  var randomNumber = Math.floor(Math.random() * 6) + 1;
+  console.log(randomNumber);
+  document.getElementById("roll-label").innerText = randomNumber;
+  return randomNumber;
+}
+
+/*function updateRollLabel(number) {
+ document.getElementById("roll-Label").innerHTML = number.toString();
+} */
