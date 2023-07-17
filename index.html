@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://use.typekit.net/lfy7due.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lfy7due.css" />
     <title>Pigs of War</title>
   </head>
   <body>
@@ -38,21 +38,24 @@
         </form>
       </div>
     </div>
+
     <div id="gamePage">
       <div class="container">
         <div class="top">
           <h1 class="turnLabel">Player's turn</h1>
         </div>
+
         <div class="middle">
-          <label id="roll-label">0</label>
+          <label id="roll-label"></label>
           <div class="dice-container">
-          <div class = "dice">
-            <div class="dice-dot">
-              
+            <div class="dice">
+              <div class="face1">
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
         </div>
-        </div>
+
         <div class="bottom">
           <button onclick="clickRollButton()" class="app-button">
             <strong>Roll</strong>
@@ -60,6 +63,8 @@
           <button class="hold-button">
             <strong>Hold</strong>
           </button>
+        </div>
+
       </div>
     </div>
     <script src="index.js"></script>
