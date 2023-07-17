@@ -4,9 +4,9 @@ window.addEventListener("load", function () {
 });
 
 window.addEventListener("load", function () {
-    var element = document.getElementById("gamePage");
-    element.style.display = "none";
-  });
+  var element = document.getElementById("gamePage");
+  element.style.display = "none";
+});
 
 function myClick() {
   // makes id welcome page disappear and makes setup page appear
@@ -15,20 +15,16 @@ function myClick() {
 }
 
 function clickRollButton() {
-
   let rollValue = rollDice();
-  //updateRollLabel(rollValue);
-
+  updateRollLabel(rollValue);
 }
 
 //Generates a random number between 1 and 6
 function rollDice() {
   var randomNumber = Math.floor(Math.random() * 6) + 1;
-  console.log(randomNumber);
-  document.getElementById("roll-label").innerText = randomNumber;
   return randomNumber;
 }
 
-/*function updateRollLabel(number) {
- document.getElementById("roll-Label").innerHTML = number.toString();
-} */
+function updateRollLabel(number) {
+  document.getElementById("roll-label").innerText = number;
+}

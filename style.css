@@ -1,5 +1,9 @@
 body {
   background-color: #15151e;
+
+  font-family: "shift", serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .container {
@@ -10,6 +14,7 @@ body {
 }
 
 .welcome {
+  font-weight: 900;
   text-align: center;
   font-size: 50px;
   line-height: 30%;
@@ -66,8 +71,8 @@ body {
 }
 
 .hold-button:hover {
-        color: #15151e;
-        background: #e54326;
+  color: #15151e;
+  background: #e54326;
 }
 
 /*Game Page*/
@@ -78,6 +83,22 @@ body {
 
 .middle {
   color: #e5b026;
+  justify-content: center;
+  text-align: center;
+}
+
+#roll-label {
+  font-size: larger;
+  color: green;
+}
+
+.dice {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .bottom {
