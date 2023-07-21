@@ -102,35 +102,58 @@ body {
   vertical-align: center;
   flex-wrap: wrap;
   align-content: center;
+  padding-bottom: 20px;
 }
 
-/* code starts here */
-
-.first-face {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .dice {
   padding: 4px;
   background-color: rgb(255, 255, 234);
   width: 104px;
   height: 104px;
   border-radius: 10%;
-  margin-right : 10px;
+  margin-right: 10px;
 }
-.dot{
+.dot {
   display: block;
+  /*display: block;*/
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color:black;
+  background-color: black;
 }
 
+#dice1 {
+  display: none;
+}
 
+#dice2{
+  display: none;
+}
 
-.second-face{
-  display: flex ;
+#dice3{
+  display: none;
+}
+
+#dice4{
+  display: none;
+}
+
+#dice5{
+  display: none;
+}
+
+#dice6{
+  display: none;
+}
+
+.first-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-face {
+  display: flex;
   justify-content: space-between;
 }
 
@@ -144,20 +167,23 @@ body {
 }
 
 .third-face .dot:nth-of-type(1) {
-  align-self :flex-end;
+  align-self: flex-end;
 }
 
 .third-face .dot:nth-of-type(2) {
-  align-self :center;
+  align-self: center;
 }
 
-
-.fourth-face , .sixth-face, .fifth-face{
+.fourth-face,
+.sixth-face,
+.fifth-face {
   display: flex;
   justify-content: space-between;
 }
 
-.fourth-face .column , .sixth-face .column, .fifth-face .column{
+.fourth-face .column,
+.sixth-face .column,
+.fifth-face .column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -166,7 +192,6 @@ body {
 .fifth-face .column:nth-of-type(2) {
   justify-content: center;
 }
-
 
 .bottom {
   color: #e5b026;

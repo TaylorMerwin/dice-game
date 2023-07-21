@@ -24,7 +24,7 @@
             pariatur.
           </p>
 
-          <button onclick="myClick()" class="app-button">
+          <button onclick="startGameButton()" class="app-button">
             <strong>Play</strong>
           </button>
         </div>
@@ -47,27 +47,36 @@
 
         <div class="middle">
           <label id="roll-label"></label>
+
           <div class="dice-container">
 
-            <div class="dice first-face">
+
+
+
+            <div id="dice1" class="dice first-face">
               <span class="dot">
               </span>
             </div>
             
-            <div class="dice second-face">
+
+
+
+            <div id="dice2" class="dice second-face">
               <span class="dot">
               </span>
               <span class="dot">
               </span>
             </div>
-            
-            <div class="dice third-face">
+   
+
+
+            <div id="dice3" class="dice third-face">
               <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
             </div>
-            
-            <div class="fourth-face dice">
+                    
+            <div id="dice4" class="fourth-face dice">
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -77,24 +86,28 @@
                 <span class="dot"></span>
               </div>
             </div>
-            <div class="fifth-face dice">
+
+
+            <div id="dice5" class="fifth-face dice">
+          
+              <div class="column">
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              
+              <div class="column">
+                <span class="dot"></span>
+              </div>
               
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
-              
-              <div class="column">
-                <span class="dot"></span>
-              </div>
-              
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
             
             </div>
-            <div class="sixth-face dice">
+          
+
+            <div id="dice6" class="sixth-face dice">
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -103,7 +116,7 @@
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
-                    <span class="dot"></span>
+                <span class="dot"></span>
               </div>
             
             </div>

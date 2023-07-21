@@ -8,15 +8,17 @@ window.addEventListener("load", function () {
   element.style.display = "none";
 });
 
-function myClick() {
+function startGameButton() {
   // makes id welcome page disappear and makes setup page appear
   document.getElementById("welcomePage").style.display = "none";
   document.getElementById("gamePage").style.display = "block";
+  document.getElementByClassName("dice-container").style.visibility = "hidden";
 }
 
 function clickRollButton() {
   let rollValue = rollDice();
   updateRollLabel(rollValue);
+  showDice(rollValue);
 }
 
 //Generates a random number between 1 and 6
@@ -27,4 +29,15 @@ function rollDice() {
 
 function updateRollLabel(number) {
   document.getElementById("roll-label").innerText = "You rolled a " + number;
+}
+
+function showDice(num) {
+
+  for (let i = 1; i <= 6; i++) {
+    if (i == num) {
+      document.getElementById("dice" + i).style.display = "flex";
+    } else {
+      document.getElementById("dice" + i).style.display = "none";
+    }
+  }
 }
