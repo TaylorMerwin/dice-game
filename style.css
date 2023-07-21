@@ -122,29 +122,15 @@ body {
   background-color: black;
 }
 
-#dice1 {
+#dice1,
+#dice2,
+#dice3,
+#dice4,
+#dice5,
+#dice6 {
   display: none;
 }
 
-#dice2{
-  display: none;
-}
-
-#dice3{
-  display: none;
-}
-
-#dice4{
-  display: none;
-}
-
-#dice5{
-  display: none;
-}
-
-#dice6{
-  display: none;
-}
 
 .first-face {
   display: flex;

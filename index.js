@@ -1,3 +1,13 @@
+let playerName = "";
+
+let playerScore = 0;
+let computerScore = 0;
+let playerTurn = true;
+let pTurnScore = 0;
+let turn = 0;
+let rolls = 0;
+
+
 window.addEventListener("load", function () {
   var element = document.getElementById("setupPage");
   element.style.display = "none";
@@ -32,7 +42,6 @@ function updateRollLabel(number) {
 }
 
 function showDice(num) {
-
   for (let i = 1; i <= 6; i++) {
     if (i == num) {
       document.getElementById("dice" + i).style.display = "flex";
