@@ -76,6 +76,11 @@ body {
   background: #e54326;
 }
 
+
+
+
+
+
 /*Game Page*/
 
 .top {
@@ -113,6 +118,7 @@ body {
   border-radius: 10%;
   margin-right: 10px;
 }
+
 .dot {
   display: block;
   /*display: block;*/
@@ -180,5 +186,13 @@ body {
 }
 
 .bottom {
+  display: flex;
+  flex-direction: column;
   color: #e5b026;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

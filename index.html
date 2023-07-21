@@ -16,12 +16,12 @@
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            Pigs of war is a modern reimagining of the classic dice game 'Pig'.
+            <br><br>
+            GAMEPLAY:
+            <br><br>
+            The game is played with 2 dice. On each turn, a player rolls the dice repeatedly until either a 1 is rolled or the player holds and scores the sum of the rolls (i.e. the turn total).
+            At any time during a player's turn, the player is faced with two decisions: ROLL or HOLD. If the player chooses to roll they have the opportunity to raise their score but with higher and higher risk. If they choose to hold, they lock in their score but immediately end their turn.
           </p>
 
           <button onclick="startGameButton()" class="app-button">
@@ -33,7 +33,7 @@
     <div id="setupPage">
       <div class="container">
         <form>
-          <label for="name">Name:</label><br />
+          <label for="name">Name:</label><br/>
           <input type="text" id="name" name="name" /><br />
         </form>
       </div>
@@ -107,12 +107,15 @@
         </div>
 
         <div class="bottom">
-          <button onclick="clickRollButton()" class="app-button">
-            <strong>Roll</strong>
-          </button>
-          <button class="hold-button">
-            <strong>Hold</strong>
-          </button>
+          <div class="button-container">
+            <button onclick="clickRollButton()" class="app-button">
+              <strong>Roll</strong>
+            </button>
+            <button class="hold-button">
+              <strong>Hold</strong>
+            </button>
+          </div>
+          <label id="turn-score-label"></label>
         </div>
       </div>
     </div>
