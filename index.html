@@ -17,14 +17,19 @@
         <div class="description">
           <p>
             Pigs of war is a modern reimagining of the classic dice game 'Pig'.
-            <br><br>
+            <br /><br />
             GAMEPLAY:
-            <br><br>
-            The game is played with 2 dice. On each turn, a player rolls the dice repeatedly until either a 1 is rolled or the player holds and scores the sum of the rolls (i.e. the turn total).
-            At any time during a player's turn, the player is faced with two decisions: ROLL or HOLD. If the player chooses to roll they have the opportunity to raise their score but with higher and higher risk. If they choose to hold, they lock in their score but immediately end their turn.
+            <br /><br />
+            The game is played with 2 dice. On each turn, a player rolls the
+            dice repeatedly until either a 1 is rolled or the player holds and
+            scores the sum of the rolls (i.e. the turn total). At any time
+            during a player's turn, the player is faced with two decisions: ROLL
+            or HOLD. If the player chooses to roll they have the opportunity to
+            raise their score but with higher and higher risk. If they choose to
+            hold, they lock in their score but immediately end their turn.
           </p>
 
-          <button onclick="startGameButton()" class="app-button">
+          <button onclick="setupGameButton()" class="app-button">
             <strong>Play</strong>
           </button>
         </div>
@@ -32,17 +37,30 @@
     </div>
     <div id="setupPage">
       <div class="container">
+        <h1>Select Screen</h1>
         <form>
-          <label for="name">Name:</label><br/>
-          <input type="text" id="name" name="name" /><br />
+          <label for="name">Name:</label><br />
+          <input
+            type="text"
+            id="player-name-input"
+            name="playerName"
+            required
+            minlength="1"
+            maxlength="15"
+            size="12"
+          />
+          <br />
         </form>
+        <button onclick="startGameButton()" class="app-button">
+          <strong>Play</strong>
+        </button>
       </div>
     </div>
 
     <div id="gamePage">
       <div class="container">
         <div class="top">
-          <h1 class="turnLabel">Player's turn</h1>
+          <h1 class="turn-label">Player's turn</h1>
         </div>
 
         <div class="middle">

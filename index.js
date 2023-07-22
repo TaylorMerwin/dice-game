@@ -1,3 +1,4 @@
+
 let playerName = "";
 let rollOneMessage = "Oops! Turn score reset to 0!";
 let holdMessage = "Turn score added to total score!";
@@ -23,10 +24,26 @@ window.addEventListener("load", function () {
   element.style.display = "none";
 });
 
-function startGameButton() {
+function setupGameButton() {
   // makes id welcome page disappear and makes setup page appear
   document.getElementById("welcomePage").style.display = "none";
+  document.getElementById("setupPage").style.display = "block";
+}
+
+function startGameButton() {
+  // makes id welcome page disappear and makes setup page appear
+
+
+  document.getElementById("welcomePage").style.display = "none";
+  document.getElementById("setupPage").style.display = "none";
   document.getElementById("gamePage").style.display = "block";
+
+  // gets player name from input field
+  playerName = document.getElementById("player-name-input").value;
+  var playerTurn = document.getElementByClassName("turn-label");
+  playerTurn.innerText = playerName + "'s Turn";
+
+
   document.getElementByClassName("dice-container").style.visibility = "hidden";
 }
 
