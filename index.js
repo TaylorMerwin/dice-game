@@ -1,9 +1,8 @@
 
-let playerName = "";
-let rollOneMessage = "Oops! Turn score reset to 0!";
-let holdMessage = "Turn score added to total score!";
-let winMessage = "You win!";
-let loseMessage = "You lose!";
+const rollOneMessage = "Oops! Turn score reset to 0!";
+const holdMessage = "Turn score added to total score!";
+const winMessage = "You win!";
+const loseMessage = "You lose!";
 
 
 let playerScore = 0;
@@ -13,6 +12,17 @@ let turnScore = 0;
 let turn = 0;
 let rolls = 0;
 
+const inputElement = document.getElementById("player-name-input");
+var playerName = "";
+
+inputElement.addEventListener("input", (event) => {
+  playerName = event.target.value;
+});
+
+function displayWelcomeMessage() {
+  const welcomeMessage = `Welcome, ${playerName}!`;
+  console.log(welcomeMessage);
+}
 
 window.addEventListener("load", function () {
   var element = document.getElementById("setupPage");
@@ -32,19 +42,21 @@ function setupGameButton() {
 
 function startGameButton() {
   // makes id welcome page disappear and makes setup page appear
-
-
   document.getElementById("welcomePage").style.display = "none";
   document.getElementById("setupPage").style.display = "none";
   document.getElementById("gamePage").style.display = "block";
 
-  // gets player name from input field
-  playerName = document.getElementById("player-name-input").value;
-  var playerTurn = document.getElementByClassName("turn-label");
-  playerTurn.innerText = playerName + "'s Turn";
+  //for testing
+  displayWelcomeMessage();
 
 
-  document.getElementByClassName("dice-container").style.visibility = "hidden";
+  updateTurnLabel();
+}
+
+function updateTurnLabel() {
+
+  const turnLabel = document.getElementById("turn-label");
+  turnLabel.innerText = `${playerName}'s turn`;
 }
 
 function clickRollButton() {

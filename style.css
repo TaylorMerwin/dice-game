@@ -11,6 +11,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #ffb86c;
 }
 
 .welcome {
@@ -51,6 +52,10 @@ body {
 .app-button:hover {
   color: #282a36;
   background: #ffb86c;
+}
+
+#player-name-input {
+  margin-bottom: 20px;
 }
 
 .hold-button {
@@ -94,10 +99,17 @@ body {
   width: 130px;
 }
 
-#roll-label {
+#turn-label {
   text-align: center;
   font-size: larger;
+  color: #ffb86c;;
+}
+
+#roll-label {
+  text-align: center;
+  font-size: large;
   color: #50fa7b;
+  margin-bottom: 20px;
 }
 
 .dice-container {
