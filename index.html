@@ -60,31 +60,101 @@
     <div id="gamePage">
       <div class="container">
         <div class="top">
+          <div class="score-container">
+            <div class="player-score">
+              <h2 id="player1-name-label">player</h2>
+              <h2 id="player1-score-label">69</h2>
+            </div>
+            <div class="player-score">
+              <h2 id="computer-name-label">Computer</h2>
+              <h2 id="computer-score-label">420</h2>
+            </div>
+          </div>
           <div id="turn-label">
             <h1>Player's turn</h1>
           </div>
         </div>
 
         <div class="middle">
+          
           <label id="roll-label"></label>
 
+          <div class="dice-holder">
+            <div class="dice-container">
+              <div id="dice1" class="dice first-face">
+                <span class="dot"> </span>
+              </div>
+
+              <div id="dice2" class="dice second-face">
+                <span class="dot"> </span>
+                <span class="dot"> </span>
+              </div>
+
+              <div id="dice3" class="dice third-face">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+
+              <div id="dice4" class="fourth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+
+              <div id="dice5" class="fifth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+
+                <div class="column">
+                  <span class="dot"></span>
+                </div>
+
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+
+              <div id="dice6" class="sixth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </div>
+          
+
           <div class="dice-container">
-            <div id="dice1" class="dice first-face">
+            <div id="dice1b" class="dice first-face">
               <span class="dot"> </span>
             </div>
 
-            <div id="dice2" class="dice second-face">
+            <div id="dice2b" class="dice second-face">
               <span class="dot"> </span>
               <span class="dot"> </span>
             </div>
 
-            <div id="dice3" class="dice third-face">
+            <div id="dice3b" class="dice third-face">
               <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
             </div>
 
-            <div id="dice4" class="fourth-face dice">
+            <div id="dice4b" class="fourth-face dice">
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -95,7 +165,7 @@
               </div>
             </div>
 
-            <div id="dice5" class="fifth-face dice">
+            <div id="dice5b" class="fifth-face dice">
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -111,7 +181,7 @@
               </div>
             </div>
 
-            <div id="dice6" class="sixth-face dice">
+            <div id="dice6b" class="sixth-face dice">
               <div class="column">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -124,6 +194,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         <div class="bottom">

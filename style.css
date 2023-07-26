@@ -90,13 +90,42 @@ body {
 
 .top {
   color: #ffb86c;
+  display: flex;
+  width: min(50%, 800px);
+  max-width: 100%;
+  flex-direction: column;
 }
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  gap: 50%;
+}
+
+.player-score {
+
+}
+
+
+.player-score h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #ffb86c;
+
+}
+
+
+
+
 
 .middle {
   color: #ffb86c;
   justify-content: center;
-  text-align: ffb86ccenter;
-  width: 130px;
+  /*width: 130px; */
 }
 
 #turn-label {
@@ -110,6 +139,12 @@ body {
   font-size: large;
   color: #50fa7b;
   margin-bottom: 20px;
+}
+
+.dice-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .dice-container {
@@ -146,6 +181,15 @@ body {
 #dice4,
 #dice5,
 #dice6 {
+  display: none;
+}
+
+#dice1b,
+#dice2b,
+#dice3b,
+#dice4b,
+#dice5b,
+#dice6b {
   display: none;
 }
 
@@ -207,4 +251,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
