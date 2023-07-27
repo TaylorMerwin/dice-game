@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #ffb86c;
+  height: 100vh;
 }
 
 .welcome {
@@ -91,6 +92,7 @@ body {
 .top {
   color: #ffb86c;
   display: flex;
+  margin-top: auto;
   width: min(50%, 800px);
   max-width: 100%;
   flex-direction: column;
@@ -125,6 +127,7 @@ body {
 .middle {
   color: #ffb86c;
   justify-content: center;
+  align-items: center;
   /*width: 130px; */
 }
 
