@@ -12,28 +12,17 @@ let turnScore = 0;
 let turn = 0;
 let rolls = 0;
 
-const input1Element = document.getElementById("player1-name-input");
+const inputElement = document.getElementById("player-name-input");
 var player1Name = "";
 
-const input2Element = document.getElementById("player2-name-input");
-var player2Name = "";
-
-input1Element.addEventListener("input", (event) => {
+inputElement.addEventListener("input", (event) => {
   player1Name = event.target.value;
 });
 
-input2Element.addEventListener("input", (event) => {
-  player2Name = event.target.value;
-});
-
+//prints to the console, the player's name. Used to test the text input
 function displayWelcomeMessage() {
   const welcomeMessage = `Welcome, ${player1Name}!`;
   console.log(welcomeMessage);
-}
-
-function setScoreLabel(name1, name2) {
-  document.getElementById("player1-name-label").innerText = name1;
-  document.getElementById("player2-name-label").innerText = name2;
 }
 
 window.addEventListener("load", function () {
@@ -60,17 +49,16 @@ function startGameButton() {
 
   //for testing
   displayWelcomeMessage();
-
-  updateTurnLabel(player1Name);
-  setScoreLabel(player1Name, player2Name);
+  updateTurnLabel();
 }
 
-function updateTurnLabel(name) {
-
+//Updates the turn label to show the current player's turn
+function updateTurnLabel() {
   const turnLabel = document.getElementById("turn-label");
-  turnLabel.innerText = name + "'s turn";
+  turnLabel.innerText = `${player1Name}'s turn`;
 }
 
+//controls what happens when the roll button is clicked
 function clickRollButton() {
   let rollValue1 = rollDice();
   let rollValue2 = rollDice();
@@ -86,15 +74,18 @@ function rollDice() {
   return randomNumber;
 }
 
+//Updates the roll label to show the last rolled values
 function updateRollLabel(number1, number2) {
   document.getElementById("roll-label").innerText = "You rolled a " + number1 + " and a " + number2 + "!";
 }
 
+//Updates the turn score label to add the rolled values
 function updateTurnScore(number1, number2) {
   turnScore += number1 + number2;
   document.getElementById("turn-score-label").innerText = turnScore;
 }
 
+//Updates the visible dice to match the rolled values
 function showDice(num, bool) {
   //True for dice 1, false for dice 2
 
