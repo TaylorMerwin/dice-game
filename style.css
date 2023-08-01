@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #ffb86c;
-  height: 100vh;
+ /* height: 100vh; */
 }
 
 .welcome {
@@ -55,7 +55,26 @@ body {
   background: #ffb86c;
 }
 
-#player-name-input {
+.radio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+input[type="radio"],
+label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#player1-name-input,
+#player2-name-input {
   margin-bottom: 20px;
 }
 
@@ -92,7 +111,7 @@ body {
 .top {
   color: #ffb86c;
   display: flex;
-  margin-top: auto;
+  /*margin-top: auto; */
   width: min(50%, 800px);
   max-width: 100%;
   flex-direction: column;

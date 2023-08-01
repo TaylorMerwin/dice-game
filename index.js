@@ -13,14 +13,14 @@ let turn = 0;
 let rolls = 0;
 
 const inputElement = document.getElementById("player-name-input");
-var playerName = "";
+var player1Name = "";
 
 inputElement.addEventListener("input", (event) => {
-  playerName = event.target.value;
+  player1Name = event.target.value;
 });
 
 function displayWelcomeMessage() {
-  const welcomeMessage = `Welcome, ${playerName}!`;
+  const welcomeMessage = `Welcome, ${player1Name}!`;
   console.log(welcomeMessage);
 }
 
@@ -55,7 +55,7 @@ function startGameButton() {
 function updateTurnLabel() {
 
   const turnLabel = document.getElementById("turn-label");
-  turnLabel.innerText = `${playerName}'s turn`;
+  turnLabel.innerText = `${player1Name}'s turn`;
 }
 
 function clickRollButton() {

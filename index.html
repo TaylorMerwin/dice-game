@@ -38,12 +38,23 @@
     <div id="setupPage">
       <div class="container">
         <h1>Select Screen</h1>
+
+        <h3> How many players?</h3>
+
+
+        <form class="radio-container">
+          <input type="radio" id="1player" name="players" value="1player" />
+          <label for="1player">One</label><br />
+          <input type="radio" id="2player" name="players" value="2player" />
+          <label for="2player">Two</label><br />
+        </form>
+
         <form>
-          <label for="name">Name:</label><br />
+          <label for="name1">Name1:</label>
           <input
             type="text"
-            id="player-name-input"
-            name="playerName"
+            id="player1-name-input"
+            name="player1Name"
             required
             minlength="1"
             maxlength="15"
@@ -51,6 +62,21 @@
           />
           <br />
         </form>
+
+        <form>
+          <label for="name2">Name2:</label>
+          <input
+            type="text"
+            id="player2-name-input"
+            name="player2Name"
+            required
+            minlength="1"
+            maxlength="15"
+            size="12"
+          />
+          <br />
+        </form>
+
         <button onclick="startGameButton()" class="app-button">
           <strong>Play</strong>
         </button>
