@@ -12,16 +12,28 @@ let turnScore = 0;
 let turn = 0;
 let rolls = 0;
 
-const inputElement = document.getElementById("player-name-input");
+const input1Element = document.getElementById("player1-name-input");
 var player1Name = "";
 
-inputElement.addEventListener("input", (event) => {
+const input2Element = document.getElementById("player2-name-input");
+var player2Name = "";
+
+input1Element.addEventListener("input", (event) => {
   player1Name = event.target.value;
+});
+
+input2Element.addEventListener("input", (event) => {
+  player2Name = event.target.value;
 });
 
 function displayWelcomeMessage() {
   const welcomeMessage = `Welcome, ${player1Name}!`;
   console.log(welcomeMessage);
+}
+
+function setScoreLabel(name1, name2) {
+  document.getElementById("player1-name-label").innerText = name1;
+  document.getElementById("player2-name-label").innerText = name2;
 }
 
 window.addEventListener("load", function () {
@@ -49,13 +61,14 @@ function startGameButton() {
   //for testing
   displayWelcomeMessage();
 
-  updateTurnLabel();
+  updateTurnLabel(player1Name);
+  setScoreLabel(player1Name, player2Name);
 }
 
-function updateTurnLabel() {
+function updateTurnLabel(name) {
 
   const turnLabel = document.getElementById("turn-label");
-  turnLabel.innerText = `${player1Name}'s turn`;
+  turnLabel.innerText = name + "'s turn";
 }
 
 function clickRollButton() {

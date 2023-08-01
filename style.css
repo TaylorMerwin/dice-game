@@ -111,9 +111,10 @@ label {
 .top {
   color: #ffb86c;
   display: flex;
-  /*margin-top: auto; */
-  width: min(50%, 800px);
-  max-width: 100%;
+  width: min(40%, 800px);
+  justify-content: center;
+  align-items: center;
+
   flex-direction: column;
 }
 
@@ -126,17 +127,22 @@ label {
   gap: 50%;
 }
 
-.player-score {
 
-}
-
-
-.player-score h2 {
+.player-score-1,
+.player-score-2 {
   margin: 0;
   padding: 0;
   font-size: 20px;
   color: #ffb86c;
+  text-align: center;
+}
 
+
+
+#turn-label {
+  text-align: center;
+  font-size: larger;
+  color: #ffb86c;
 }
 
 

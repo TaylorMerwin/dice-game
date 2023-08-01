@@ -39,18 +39,17 @@
       <div class="container">
         <h1>Select Screen</h1>
 
-        <h3> How many players?</h3>
-
+        <h3>How many players?</h3>
 
         <form class="radio-container">
-          <input type="radio" id="1player" name="players" value="1player" />
-          <label for="1player">One</label><br />
-          <input type="radio" id="2player" name="players" value="2player" />
-          <label for="2player">Two</label><br />
+          <input type="radio" id="1player" name="1player" value="1player" />
+          <label for="player1">One</label><br />
+          <input type="radio" id="2player" name="2player" value="2player" />
+          <label for="player2">Two</label><br />
         </form>
 
         <form>
-          <label for="name1">Name1:</label>
+          <label for="player1-name-input">Name1:</label>
           <input
             type="text"
             id="player1-name-input"
@@ -64,7 +63,7 @@
         </form>
 
         <form>
-          <label for="name2">Name2:</label>
+          <label for="player2-name-input">Name2:</label>
           <input
             type="text"
             id="player2-name-input"
@@ -87,22 +86,21 @@
       <div class="container">
         <div class="top">
           <div class="score-container">
-            <div class="player-score">
-              <h2 id="player1-name-label">player</h2>
-              <h2 id="player1-score-label">69</h2>
+            <div class="player-score-1">
+              <h2 id="player1-name-label">player1</h2>
+              <h2 id="player1-score-label">0</h2>
             </div>
-            <div class="player-score">
-              <h2 id="computer-name-label">Computer</h2>
-              <h2 id="computer-score-label">420</h2>
+
+            <h1 id="turn-label">Player's turn</h1>
+
+            <div class="player-score-2">
+              <h2 id="player2-name-label">player2</h2>
+              <h2 id="player2-score-label">0</h2>
             </div>
-          </div>
-          <div id="turn-label">
-            <h1>Player's turn</h1>
           </div>
         </div>
 
         <div class="middle">
-          
           <label id="roll-label"></label>
 
           <div class="dice-holder">
@@ -162,65 +160,64 @@
                 </div>
               </div>
             </div>
-          
 
-          <div class="dice-container">
-            <div id="dice1b" class="dice first-face">
-              <span class="dot"> </span>
-            </div>
-
-            <div id="dice2b" class="dice second-face">
-              <span class="dot"> </span>
-              <span class="dot"> </span>
-            </div>
-
-            <div id="dice3b" class="dice third-face">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-
-            <div id="dice4b" class="fourth-face dice">
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
+            <div class="dice-container">
+              <div id="dice1b" class="dice first-face">
+                <span class="dot"> </span>
               </div>
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
 
-            <div id="dice5b" class="fifth-face dice">
-              <div class="column">
+              <div id="dice2b" class="dice second-face">
+                <span class="dot"> </span>
+                <span class="dot"> </span>
+              </div>
+
+              <div id="dice3b" class="dice third-face">
+                <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
               </div>
 
-              <div class="column">
-                <span class="dot"></span>
+              <div id="dice4b" class="fourth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
 
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
+              <div id="dice5b" class="fifth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
 
-            <div id="dice6b" class="sixth-face dice">
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+                <div class="column">
+                  <span class="dot"></span>
+                </div>
+
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
-              <div class="column">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+
+              <div id="dice6b" class="sixth-face dice">
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="column">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
         <div class="bottom">
