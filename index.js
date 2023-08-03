@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 //Web Page Sections
 const welcomePageElement = document.getElementById("welcomePage");
 const setupPageElement = document.getElementById("setupPage");
@@ -11,6 +12,8 @@ const setupPageButton = document.getElementById("setupPageButton");
 const startGameButton = document.getElementById("startGameButton");
 const rollDiceButton = document.getElementById("rollDiceButton");
 const holdDiceButton = document.getElementById("holdDiceButton");
+//Label Elements
+let rollMessageElement = (_a = document.getElementById("roll-label")) === null || _a === void 0 ? void 0 : _a.innerText;
 //Event listener for window load to hide setup and game pages
 window.addEventListener("load", function () {
     setupPageElement.style.display = "none";
@@ -28,8 +31,38 @@ startGameButton.addEventListener("click", function () {
 });
 //Event listener for roll dice button
 rollDiceButton.addEventListener("click", rollDice);
+function updateRollMessage(die1, die2) {
+    rollMessageElement = "You rolled a " + die1 + " and a " + die2 + "!";
+    rollMessageElement += "\nWould you like to roll again?";
+}
 function rollDice() {
-    let diceRoll = Math.floor(Math.random() * 6) + 1;
-    console.log(diceRoll);
-    return diceRoll;
+    let diceRoll1 = Math.floor(Math.random() * 6) + 1;
+    let diceRoll2 = Math.floor(Math.random() * 6) + 1;
+    updateRollMessage(diceRoll1, diceRoll2);
+    showDice(diceRoll1, true);
+    showDice(diceRoll2, false);
+}
+//Updates the visible dice to match the rolled values
+function showDice(die, bool) {
+    //True for dice 1, false for dice 2
+    if (bool) {
+        for (let i = 1; i <= 6; i++) {
+            if (i == die) {
+                document.getElementById("dice" + i).style.display = "flex";
+            }
+            else {
+                document.getElementById("dice" + i).style.display = "none";
+            }
+        }
+    }
+    else {
+        for (let i = 1; i <= 6; i++) {
+            if (i == die) {
+                document.getElementById("dice" + i + "b").style.display = "flex";
+            }
+            else {
+                document.getElementById("dice" + i + "b").style.display = "none";
+            }
+        }
+    }
 }

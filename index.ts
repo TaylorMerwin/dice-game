@@ -40,13 +40,41 @@ rollDiceButton!.addEventListener("click", rollDice);
 
 function updateRollMessage(die1: number, die2: number) {
   rollMessageElement = "You rolled a " + die1 + " and a " + die2 + "!";
+  rollMessageElement += "\nWould you like to roll again?";
 }
-
 
 function rollDice() {
   let diceRoll1 = Math.floor(Math.random() * 6) + 1;
   let diceRoll2 = Math.floor(Math.random() * 6) + 1;
   updateRollMessage(diceRoll1, diceRoll2);
+  showDice(diceRoll1, true);
+  showDice(diceRoll2, false);
+}
+
+//Updates the visible dice to match the rolled values
+function showDice(die: number, bool: boolean) {
+  //True for dice 1, false for dice 2
+
+  if (bool) {
+    for (let i = 1; i <= 6; i++) {
+      if (i == die) {
+        document.getElementById("dice" + i)!.style.display = "flex";
+      } else {
+        document.getElementById("dice" + i)!.style.display = "none";
+      }
+    }
+  }
+
+  else {
+    for (let i = 1; i <= 6; i++) {
+      if (i == die) {
+        document.getElementById("dice" + i + "b")!.style.display = "flex";
+      } else {
+        document.getElementById("dice" + i + "b")!.style.display = "none";
+      }
+    }
+  }
+
 }
 
 
