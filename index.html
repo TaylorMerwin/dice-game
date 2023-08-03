@@ -8,6 +8,7 @@
     <title>Pigs of War</title>
   </head>
   <body>
+
     <div id="welcomePage">
       <div class="container">
         <div class="welcome">
@@ -29,7 +30,7 @@
             hold, they lock in their score but immediately end their turn.
           </p>
 
-          <button onclick="setupGameButton()" class="app-button">
+          <button class="app-button" id="setupPageButton">
             <strong>Play</strong>
           </button>
         </div>
@@ -38,15 +39,6 @@
     <div id="setupPage">
       <div class="container">
         <h1>Select Screen</h1>
-
-        <h3>How many players?</h3>
-
-        <form class="radio-container">
-          <input type="radio" id="1player" name="1player" value="1player" />
-          <label for="player1">One</label><br />
-          <input type="radio" id="2player" name="2player" value="2player" />
-          <label for="player2">Two</label><br />
-        </form>
 
         <form>
           <label for="player1-name-input">Name1:</label>
@@ -76,7 +68,7 @@
           <br />
         </form>
 
-        <button onclick="clickStartButton()" class="app-button">
+        <button class="app-button" id="startGameButton">
           <strong>Play</strong>
         </button>
       </div>
@@ -85,19 +77,18 @@
     <div id="gamePage">
       <div class="container">
         <div class="top">
+
           <div class="score-container">
             <div class="player-score-1">
-              <h2 id="player1-name-label">player1</h2>
-              <h2 id="player1-score-label">0</h2>
+              <h2 id="player1-label">player1: 0</h2>
             </div>
-
-            <h1 id="turn-label">Player's turn</h1>
-
             <div class="player-score-2">
-              <h2 id="player2-name-label">player2</h2>
-              <h2 id="player2-score-label">0</h2>
+              <h2 id="player2-label">player2: 0</h2>
             </div>
           </div>
+
+          <h1 id="turn-label">Player's turn</h1>
+          <h2 id="turn-counter-label">Turn: 0</h2>
         </div>
 
         <div class="middle">
@@ -222,10 +213,10 @@
 
         <div class="bottom">
           <div class="button-container">
-            <button onclick="clickRollButton()" class="app-button">
+            <button class="app-button" id="rollDiceButton">
               <strong>Roll</strong>
             </button>
-            <button class="hold-button">
+            <button class="hold-button" id="holdDiceButton">
               <strong>Hold</strong>
             </button>
           </div>
@@ -233,6 +224,6 @@
         </div>
       </div>
     </div>
-    <script src="index.js"></script>
+   <script src="index.js"></script>
   </body>
 </html>

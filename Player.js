@@ -4,9 +4,17 @@ class Player {
         this.name = name;
         this.score = 0;
         this.turnScore = 0;
-        this.isTurn = false;
+    }
+    getScore() {
+        return this.score;
+    }
+    getTurnScore() {
+        return this.turnScore;
     }
     addToTurnScore(rolled) {
         this.turnScore += rolled;
+    }
+    addToScore() {
+        this.score += this.turnScore;
     }
 }
