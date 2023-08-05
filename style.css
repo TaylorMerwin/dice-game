@@ -162,7 +162,7 @@ label {
   color: #ffb86c;;
 }
 
-#roll-label {
+#roll-message-label {
   text-align: center;
   font-size: large;
   color: #50fa7b;
@@ -280,4 +280,10 @@ label {
   justify-content: center;
   align-items: center;
   gap: 30px;
+}
+
+
+#setupPage,
+#gamePage {
+  display: none;
 }

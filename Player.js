@@ -1,5 +1,4 @@
-"use strict";
-class Player {
+export class Player {
     constructor(name) {
         this.name = name;
         this.score = 0;
@@ -13,6 +12,9 @@ class Player {
     }
     addToTurnScore(rolled) {
         this.turnScore += rolled;
+    }
+    resetTurnScore() {
+        this.turnScore = 0;
     }
     addToScore() {
         this.score += this.turnScore;

@@ -1,4 +1,4 @@
-class Player {
+export class Player {
   name: string;
   score: number;
   turnScore: number;
@@ -17,9 +17,12 @@ class Player {
     return this.turnScore;
   }
 
-
   addToTurnScore(rolled: number) {
     this.turnScore += rolled;
+  }
+
+  resetTurnScore() {
+    this.turnScore = 0;
   }
 
   addToScore() {
