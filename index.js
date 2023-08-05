@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { Player } from "./Player.js";
+=======
+"use strict";
+var _a;
+>>>>>>> refs/remotes/origin/main
 //Web Page Sections
 const welcomePageElement = document.getElementById("welcomePage");
 const setupPageElement = document.getElementById("setupPage");
@@ -12,6 +17,7 @@ const startGameButton = document.getElementById("startGameButton");
 const rollDiceButton = document.getElementById("rollDiceButton");
 const holdDiceButton = document.getElementById("holdDiceButton");
 //Label Elements
+<<<<<<< HEAD
 let rollMessageElement = document.getElementById("roll-label");
 let player1Label = document.getElementById("player1-label");
 let player2Label = document.getElementById("player2-label");
@@ -23,6 +29,14 @@ let player2Name = "";
 //Create player objects
 let player1 = new Player(player1Name);
 let player2 = new Player(player2Name);
+=======
+let rollMessageElement = (_a = document.getElementById("roll-label")) === null || _a === void 0 ? void 0 : _a.innerText;
+//Event listener for window load to hide setup and game pages
+window.addEventListener("load", function () {
+    setupPageElement.style.display = "none";
+    gamePageElement.style.display = "none";
+});
+>>>>>>> refs/remotes/origin/main
 //Event listener for setup page button
 setupPageButton.addEventListener("click", function () {
     welcomePageElement.style.display = "none";
@@ -60,6 +74,7 @@ function startGameAction() {
     //Hide setup page and show game page
     setupPageElement.style.display = "none";
     gamePageElement.style.display = "block";
+<<<<<<< HEAD
     //Set initial turn label
     updateTurnLabel(player1);
     //Update the player name labels with input from setup page
@@ -93,6 +108,28 @@ function showDice(num, bool) {
     if (bool) {
         for (let i = 1; i <= 6; i++) {
             if (i == num) {
+=======
+});
+//Event listener for roll dice button
+rollDiceButton.addEventListener("click", rollDice);
+function updateRollMessage(die1, die2) {
+    rollMessageElement = "You rolled a " + die1 + " and a " + die2 + "!";
+    rollMessageElement += "\nWould you like to roll again?";
+}
+function rollDice() {
+    let diceRoll1 = Math.floor(Math.random() * 6) + 1;
+    let diceRoll2 = Math.floor(Math.random() * 6) + 1;
+    updateRollMessage(diceRoll1, diceRoll2);
+    showDice(diceRoll1, true);
+    showDice(diceRoll2, false);
+}
+//Updates the visible dice to match the rolled values
+function showDice(die, bool) {
+    //True for dice 1, false for dice 2
+    if (bool) {
+        for (let i = 1; i <= 6; i++) {
+            if (i == die) {
+>>>>>>> refs/remotes/origin/main
                 document.getElementById("dice" + i).style.display = "flex";
             }
             else {
@@ -102,7 +139,11 @@ function showDice(num, bool) {
     }
     else {
         for (let i = 1; i <= 6; i++) {
+<<<<<<< HEAD
             if (i == num) {
+=======
+            if (i == die) {
+>>>>>>> refs/remotes/origin/main
                 document.getElementById("dice" + i + "b").style.display = "flex";
             }
             else {
