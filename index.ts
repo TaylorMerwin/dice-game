@@ -16,7 +16,7 @@ const rollDiceButton = document.getElementById("rollDiceButton");
 const holdDiceButton = document.getElementById("holdDiceButton");
 
 //Label Elements
-let rollMessageElement = document.getElementById("roll-label");
+let rollMessageElement = document.getElementById("roll-message-label");
 let player1Label = document.getElementById("player1-label");
 let player2Label = document.getElementById("player2-label");
 let turnLabel = document.getElementById("turn-label");
@@ -29,6 +29,7 @@ let player2Name: string = "";
 //Create player objects
 let player1 = new Player(player1Name);
 let player2 = new Player(player2Name);
+let players: Player[] = [player1, player2];
 
 //Event listener for setup page button
 setupPageButton!.addEventListener("click", function () {
@@ -53,7 +54,7 @@ p2NameInput!.addEventListener("input", function (event) {
   }
 });
 
-//Event listener for start game button
+//Event listener for start game button, this occurs at the very beginning of the game
 startGameButton!.addEventListener("click", startGameAction);
 
 //Event listener for roll dice button
@@ -66,19 +67,41 @@ function rollDiceAction() {
   updateRollMessage(diceRoll1, diceRoll2);
   showDice(diceRoll1, true);
   showDice(diceRoll2, false);
+
+  //if either dice are 1, reset turn score and end turn
+  if(diceRoll1 === 1 || diceRoll2 === 1){
+    //reset turn score on current player
+    //but how do we know which player is active?
+    //player1.resetTurnScore();
+  }
 }
 
 //Action to occur when start game button is clicked
 function startGameAction() {
+  //create a variable to track if the game is over
+  let gameOver: boolean = false;
   //Hide setup page and show game page
   setupPageElement!.style.display = "none";
   gamePageElement!.style.display = "block";
 
-  //Set initial turn label
-  updateTurnLabel(player1);
+  //Set initial turn label!
+  //updateTurnLabel(player1);
 
   //Update the player name labels with input from setup page
   updatePlayerLabels(player1, player2);
+
+
+
+  //create a while loop that will run until the game is over
+  while (!gameOver) {
+
+    players.forEach(player => {
+      console.log(player.name + "'s turn");
+
+  });
+
+  gameOver = true;
+}
 }
 
 function updatePlayerLabels(Player1: Player, Player2: Player) {
@@ -91,18 +114,20 @@ function updateTurnLabel(Player: Player){
 }
 
 function updateRollMessage(die1: number, die2: number) {
-  if (rollMessageElement) {
+
     if (die1 === 1 && die2 === 1) {
-      rollMessageElement!.innerText = "Snake Eyes! Get Fucked!";
+      rollMessageElement!.innerText = "Snake Eyes! Oh no! No points this turn!";
     } else if (die1 === 1 || die2 === 1) {
       rollMessageElement!.innerText =
-        "One of your dice was a 1. No points for you!";
+        "One of your dice was a 1. No points this turn!";
     } else {
       rollMessageElement!.innerText =
         "You rolled a " + die1 + " and a " + die2 + "!";
     }
-  }
+  
 }
+
+
 
 //Updates the visible dice to match the rolled values
 function showDice(num: number, bool: boolean) {
@@ -125,4 +150,12 @@ function showDice(num: number, bool: boolean) {
       }
     }
   }
+}
+
+
+//Things to happen on each turn
+function turnLoop(Player: Player) {
+//Update Turn Label
+updateTurnLabel(Player);
+
 }
