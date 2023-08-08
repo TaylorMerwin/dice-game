@@ -47,21 +47,7 @@ p2NameInput.addEventListener("input", function (event) {
 //Event listener for start game button, this occurs at the very beginning of the game
 startGameButton.addEventListener("click", startGameAction);
 //Event listener for roll dice button
-rollDiceButton.addEventListener("click", rollDiceAction);
-//Action to occur when roll dice button is clicked
-function rollDiceAction() {
-    let diceRoll1 = Math.floor(Math.random() * 6) + 1;
-    let diceRoll2 = Math.floor(Math.random() * 6) + 1;
-    updateRollMessage(diceRoll1, diceRoll2);
-    showDice(diceRoll1, true);
-    showDice(diceRoll2, false);
-    //if either dice are 1, reset turn score and end turn
-    if (diceRoll1 === 1 || diceRoll2 === 1) {
-        //reset turn score on current player
-        //but how do we know which player is active?
-        //player1.resetTurnScore();
-    }
-}
+//rollDiceButton!.addEventListener("click", rollDiceAction);
 //Action to occur when start game button is clicked
 function startGameAction() {
     //create a variable to track if the game is over
@@ -69,17 +55,36 @@ function startGameAction() {
     //Hide setup page and show game page
     setupPageElement.style.display = "none";
     gamePageElement.style.display = "block";
-    //Set initial turn label!
-    //updateTurnLabel(player1);
     //Update the player name labels with input from setup page
     updatePlayerLabels(player1, player2);
-    //create a while loop that will run until the game is over
-    while (!gameOver) {
-        players.forEach(player => {
-            console.log(player.name + "'s turn");
-        });
-        gameOver = true;
-    }
+    turnLoop(player1);
+    console.log("Player 1 loop over");
+    turnLoop(player2);
+}
+//Things to happen on each turn
+function turnLoop(Player) {
+    //Update Turn Label
+    updateTurnLabel(Player);
+    rollDiceButton.addEventListener("click", function () {
+        if (Player === player1) {
+            rollDiceAction(player1);
+        }
+        else {
+            rollDiceAction(player2);
+        }
+    });
+}
+//Action to occur when roll dice button is clicked
+function rollDiceAction(Player) {
+    let diceRoll1 = Math.floor(Math.random() * 6) + 1;
+    let diceRoll2 = Math.floor(Math.random() * 6) + 1;
+    updateRollMessage(diceRoll1, diceRoll2);
+    showDice(diceRoll1, true);
+    showDice(diceRoll2, false);
+    console.log("The dice are " + diceRoll1 + " and " + diceRoll2);
+    //Add the dice rolls to the turn score and print it to console
+    Player.turnScore += diceRoll1 + diceRoll2;
+    console.log(Player.name + "'s turn score is " + Player.turnScore);
 }
 function updatePlayerLabels(Player1, Player2) {
     player1Label.innerText = Player1.name + ": " + Player1.score;
@@ -124,9 +129,4 @@ function showDice(num, bool) {
             }
         }
     }
-}
-//Things to happen on each turn
-function turnLoop(Player) {
-    //Update Turn Label
-    updateTurnLabel(Player);
 }

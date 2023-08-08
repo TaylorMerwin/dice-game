@@ -58,23 +58,9 @@ p2NameInput!.addEventListener("input", function (event) {
 startGameButton!.addEventListener("click", startGameAction);
 
 //Event listener for roll dice button
-rollDiceButton!.addEventListener("click", rollDiceAction);
+//rollDiceButton!.addEventListener("click", rollDiceAction);
 
-//Action to occur when roll dice button is clicked
-function rollDiceAction() {
-  let diceRoll1 = Math.floor(Math.random() * 6) + 1;
-  let diceRoll2 = Math.floor(Math.random() * 6) + 1;
-  updateRollMessage(diceRoll1, diceRoll2);
-  showDice(diceRoll1, true);
-  showDice(diceRoll2, false);
 
-  //if either dice are 1, reset turn score and end turn
-  if(diceRoll1 === 1 || diceRoll2 === 1){
-    //reset turn score on current player
-    //but how do we know which player is active?
-    //player1.resetTurnScore();
-  }
-}
 
 //Action to occur when start game button is clicked
 function startGameAction() {
@@ -84,24 +70,39 @@ function startGameAction() {
   setupPageElement!.style.display = "none";
   gamePageElement!.style.display = "block";
 
-  //Set initial turn label!
-  //updateTurnLabel(player1);
-
   //Update the player name labels with input from setup page
   updatePlayerLabels(player1, player2);
+  turnLoop(player1);
+  console.log("Player 1 loop over");
+  turnLoop(player2);
 
-
-
-  //create a while loop that will run until the game is over
-  while (!gameOver) {
-
-    players.forEach(player => {
-      console.log(player.name + "'s turn");
-
-  });
-
-  gameOver = true;
 }
+//Things to happen on each turn
+function turnLoop(Player: Player) {
+  //Update Turn Label
+  updateTurnLabel(Player);
+  rollDiceButton!.addEventListener("click", function() {
+    if (Player === player1) {
+      rollDiceAction(player1);
+    }
+    else {
+      rollDiceAction(player2);
+    }
+  });
+}
+
+//Action to occur when roll dice button is clicked
+function rollDiceAction(Player: Player) {
+  let diceRoll1 = Math.floor(Math.random() * 6) + 1;
+  let diceRoll2 = Math.floor(Math.random() * 6) + 1;
+  updateRollMessage(diceRoll1, diceRoll2);
+  showDice(diceRoll1, true);
+  showDice(diceRoll2, false);
+
+  console.log("The dice are " + diceRoll1 + " and " + diceRoll2);
+  //Add the dice rolls to the turn score and print it to console
+  Player.turnScore += diceRoll1 + diceRoll2;
+  console.log(Player.name + "'s turn score is " + Player.turnScore);
 }
 
 function updatePlayerLabels(Player1: Player, Player2: Player) {
@@ -109,25 +110,21 @@ function updatePlayerLabels(Player1: Player, Player2: Player) {
   player2Label!.innerText = Player2.name + ": " + Player2.score;
 }
 
-function updateTurnLabel(Player: Player){
+function updateTurnLabel(Player: Player) {
   turnLabel!.innerText = Player.name + "'s Turn";
 }
 
 function updateRollMessage(die1: number, die2: number) {
-
-    if (die1 === 1 && die2 === 1) {
-      rollMessageElement!.innerText = "Snake Eyes! Oh no! No points this turn!";
-    } else if (die1 === 1 || die2 === 1) {
-      rollMessageElement!.innerText =
-        "One of your dice was a 1. No points this turn!";
-    } else {
-      rollMessageElement!.innerText =
-        "You rolled a " + die1 + " and a " + die2 + "!";
-    }
-  
+  if (die1 === 1 && die2 === 1) {
+    rollMessageElement!.innerText = "Snake Eyes! Oh no! No points this turn!";
+  } else if (die1 === 1 || die2 === 1) {
+    rollMessageElement!.innerText =
+      "One of your dice was a 1. No points this turn!";
+  } else {
+    rollMessageElement!.innerText =
+      "You rolled a " + die1 + " and a " + die2 + "!";
+  }
 }
-
-
 
 //Updates the visible dice to match the rolled values
 function showDice(num: number, bool: boolean) {
@@ -150,12 +147,4 @@ function showDice(num: number, bool: boolean) {
       }
     }
   }
-}
-
-
-//Things to happen on each turn
-function turnLoop(Player: Player) {
-//Update Turn Label
-updateTurnLabel(Player);
-
 }
