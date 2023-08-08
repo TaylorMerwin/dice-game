@@ -74,7 +74,6 @@ function startGameAction() {
   updatePlayerLabels(player1, player2);
   turnLoop(player1);
   console.log("Player 1 loop over");
-  turnLoop(player2);
 
 }
 //Things to happen on each turn
