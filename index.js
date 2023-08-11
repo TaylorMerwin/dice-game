@@ -57,9 +57,9 @@ function startGameAction() {
     setupPageElement.style.display = "none";
     gamePageElement.style.display = "block";
     //Update the player name labels with input from setup page
-    updatePlayerLabels(player1, player2);
+    updatePlayerLabel(player1);
+    updatePlayerLabel(player2);
     turnLoop(player1);
-    console.log("Player 1 loop over");
 }
 //Things to happen on each turn
 function turnLoop(Player) {
@@ -91,38 +91,60 @@ function rollDiceAction(Player) {
     updateRollMessage(diceRoll1, diceRoll2);
     showDice(diceRoll1, true);
     showDice(diceRoll2, false);
-    console.log("The dice are " + diceRoll1 + " and " + diceRoll2);
-    //Add the dice rolls to the turn score and print it to console
-    Player.turnScore += diceRoll1 + diceRoll2;
-    console.log(Player.name + "'s turn score is " + Player.turnScore);
+    //check if either dice roll is a 1
+    if (diceRoll1 === 1 || diceRoll2 === 1) {
+        //If either dice roll is a 1, reset the turn score to 0
+        Player.resetTurnScore();
+        holdDiceAction(Player);
+    }
+    else {
+        //Add the dice rolls to the turn score and print it to console
+        Player.turnScore += diceRoll1 + diceRoll2;
+    }
 }
 //Hold Dice Action
 function holdDiceAction(Player) {
     //First add the turn score to the player's score
     Player.score += Player.turnScore;
+    //Update the roll message
+    rollMessageElement.innerText =
+        Player.name +
+            " ended their turn!" +
+            "\nThey earned " +
+            Player.turnScore +
+            " points this turn!";
     //Then reset the turn score to 0
     Player.resetTurnScore();
-    //update the player labels
-    updatePlayerLabels(player1, player2);
-    //Update the roll message
-    rollMessageElement.innerText = Player.name + " held their turn score!";
-    //Print to console the scores
-    console.log(Player.name + "'s score is " + Player.score);
-    console.log(Player.name + "'s turn score is " + Player.turnScore);
+    //Hide the roll and hold buttons
+    rollDiceButton.style.display = "none";
+    holdDiceButton.style.display = "none";
     //Show the continue game button
     continueGameButton.style.display = "block";
+    continueGameButton.addEventListener("click", function () {
+        //hide the roll message
+        rollMessageElement.innerText = "";
+        //update the player labels
+        updatePlayerLabel(Player);
+        //Hide the continue game button
+        continueGameButton.style.display = "none";
+        // Show the roll and hold buttons
+        rollDiceButton.style.display = "block";
+        holdDiceButton.style.display = "block";
+    });
 }
-continueGameButton.addEventListener("click", continueGameAction);
-function continueGameAction() {
-    console.log("Continue Game Button Clicked");
+function continueGameAction(Player) {
     //hide the roll message
     rollMessageElement.innerText = "";
     //Hide the continue game button
     continueGameButton.style.display = "none";
 }
-function updatePlayerLabels(Player1, Player2) {
-    player1Label.innerText = Player1.name + ": " + Player1.score;
-    player2Label.innerText = Player2.name + ": " + Player2.score;
+function updatePlayerLabel(Player) {
+    if (Player === player1) {
+        player1Label.innerText = Player.name + ": " + Player.score;
+    }
+    else {
+        player2Label.innerText = Player.name + ": " + Player.score;
+    }
 }
 function updateTurnLabel(Player) {
     turnLabel.innerText = Player.name + "'s Turn";

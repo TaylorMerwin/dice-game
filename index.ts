@@ -61,8 +61,6 @@ startGameButton!.addEventListener("click", startGameAction);
 //Event listener for roll dice button
 //rollDiceButton!.addEventListener("click", rollDiceAction);
 
-
-
 //Action to occur when start game button is clicked
 function startGameAction() {
   //create a variable to track if the game is over
@@ -72,36 +70,32 @@ function startGameAction() {
   gamePageElement!.style.display = "block";
 
   //Update the player name labels with input from setup page
-  updatePlayerLabels(player1, player2);
+  updatePlayerLabel(player1);
+  updatePlayerLabel(player2);
   turnLoop(player1);
-  console.log("Player 1 loop over");
-
 }
 //Things to happen on each turn
 function turnLoop(Player: Player) {
   //Update Turn Label
   updateTurnLabel(Player);
 
-  rollDiceButton!.addEventListener("click", function() {
+  rollDiceButton!.addEventListener("click", function () {
     if (Player === player1) {
       rollDiceAction(player1);
-    }
-    else {
+    } else {
       rollDiceAction(player2);
     }
   });
 
-  holdDiceButton!.addEventListener("click", function() {
+  holdDiceButton!.addEventListener("click", function () {
     if (Player === player1) {
       holdDiceAction(player1);
       turnLoop(player2);
-    }
-    else {
+    } else {
       holdDiceAction(player2);
       turnLoop(player1);
     }
   });
-
 }
 
 //Action to occur when roll dice button is clicked
@@ -112,50 +106,67 @@ function rollDiceAction(Player: Player) {
   showDice(diceRoll1, true);
   showDice(diceRoll2, false);
 
-  console.log("The dice are " + diceRoll1 + " and " + diceRoll2);
-  //Add the dice rolls to the turn score and print it to console
-  Player.turnScore += diceRoll1 + diceRoll2;
-  console.log(Player.name + "'s turn score is " + Player.turnScore);
+  //check if either dice roll is a 1
+  if (diceRoll1 === 1 || diceRoll2 === 1) {
+    //If either dice roll is a 1, reset the turn score to 0
+    Player.resetTurnScore();
+    holdDiceAction(Player);
+  } else {
+    //Add the dice rolls to the turn score and print it to console
+    Player.turnScore += diceRoll1 + diceRoll2;
+  }
 }
 
 //Hold Dice Action
 function holdDiceAction(Player: Player) {
   //First add the turn score to the player's score
   Player.score += Player.turnScore;
-  //Then reset the turn score to 0
-  Player.resetTurnScore();
-
-  //update the player labels
-  updatePlayerLabels(player1, player2);
 
   //Update the roll message
-  rollMessageElement!.innerText = Player.name + " held their turn score!";
-  //Print to console the scores
-  console.log(Player.name + "'s score is " + Player.score);
-  console.log(Player.name + "'s turn score is " + Player.turnScore);
+  rollMessageElement!.innerText =
+    Player.name +
+    " ended their turn!" +
+    "\nThey earned " +
+    Player.turnScore +
+    " points this turn!";
 
+  //Then reset the turn score to 0
+  Player.resetTurnScore();
+  //Hide the roll and hold buttons
+  rollDiceButton!.style.display = "none";
+  holdDiceButton!.style.display = "none";
   //Show the continue game button
   continueGameButton!.style.display = "block";
+
+  continueGameButton!.addEventListener("click", function () {
+
+    //hide the roll message
+    rollMessageElement!.innerText = "";
+
+    //update the player labels
+    updatePlayerLabel(Player);
+
+    //Hide the continue game button
+    continueGameButton!.style.display = "none";
+    // Show the roll and hold buttons
+    rollDiceButton!.style.display = "block";
+    holdDiceButton!.style.display = "block";
+  });
 }
 
-continueGameButton!.addEventListener("click", continueGameAction);  
-
-
-function continueGameAction() {
-
-  console.log("Continue Game Button Clicked");
-
+function continueGameAction(Player: Player) {
   //hide the roll message
   rollMessageElement!.innerText = "";
-
   //Hide the continue game button
   continueGameButton!.style.display = "none";
 }
 
-
-function updatePlayerLabels(Player1: Player, Player2: Player) {
-  player1Label!.innerText = Player1.name + ": " + Player1.score;
-  player2Label!.innerText = Player2.name + ": " + Player2.score;
+function updatePlayerLabel(Player: Player) {
+  if (Player === player1) {
+    player1Label!.innerText = Player.name + ": " + Player.score;
+  } else {
+    player2Label!.innerText = Player.name + ": " + Player.score;
+  }
 }
 
 function updateTurnLabel(Player: Player) {
