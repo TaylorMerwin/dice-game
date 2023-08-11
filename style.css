@@ -101,6 +101,29 @@ label {
   background: #e54326;
 }
 
+.continue-button {
+  /* Layout */
+  display: none;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* Style */
+  border-radius: 6px;
+  border: 2px solid #50fa7b;
+  background: #282a36;
+  /*Button Text*/
+  color: #50fa7b;
+  text-align: center;
+  padding-left: 50;
+  margin-left: 10px;
+}
+
+.continue-button:hover {
+  color: #282a36;
+  background: #50fa7b;
+}
+
 
 
 

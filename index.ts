@@ -14,6 +14,7 @@ const setupPageButton = document.getElementById("setupPageButton");
 const startGameButton = document.getElementById("startGameButton");
 const rollDiceButton = document.getElementById("rollDiceButton");
 const holdDiceButton = document.getElementById("holdDiceButton");
+const continueGameButton = document.getElementById("continueGameButton");
 
 //Label Elements
 let rollMessageElement = document.getElementById("roll-message-label");
@@ -80,6 +81,7 @@ function startGameAction() {
 function turnLoop(Player: Player) {
   //Update Turn Label
   updateTurnLabel(Player);
+
   rollDiceButton!.addEventListener("click", function() {
     if (Player === player1) {
       rollDiceAction(player1);
@@ -88,6 +90,18 @@ function turnLoop(Player: Player) {
       rollDiceAction(player2);
     }
   });
+
+  holdDiceButton!.addEventListener("click", function() {
+    if (Player === player1) {
+      holdDiceAction(player1);
+      turnLoop(player2);
+    }
+    else {
+      holdDiceAction(player2);
+      turnLoop(player1);
+    }
+  });
+
 }
 
 //Action to occur when roll dice button is clicked
@@ -103,6 +117,41 @@ function rollDiceAction(Player: Player) {
   Player.turnScore += diceRoll1 + diceRoll2;
   console.log(Player.name + "'s turn score is " + Player.turnScore);
 }
+
+//Hold Dice Action
+function holdDiceAction(Player: Player) {
+  //First add the turn score to the player's score
+  Player.score += Player.turnScore;
+  //Then reset the turn score to 0
+  Player.resetTurnScore();
+
+  //update the player labels
+  updatePlayerLabels(player1, player2);
+
+  //Update the roll message
+  rollMessageElement!.innerText = Player.name + " held their turn score!";
+  //Print to console the scores
+  console.log(Player.name + "'s score is " + Player.score);
+  console.log(Player.name + "'s turn score is " + Player.turnScore);
+
+  //Show the continue game button
+  continueGameButton!.style.display = "block";
+}
+
+continueGameButton!.addEventListener("click", continueGameAction);  
+
+
+function continueGameAction() {
+
+  console.log("Continue Game Button Clicked");
+
+  //hide the roll message
+  rollMessageElement!.innerText = "";
+
+  //Hide the continue game button
+  continueGameButton!.style.display = "none";
+}
+
 
 function updatePlayerLabels(Player1: Player, Player2: Player) {
   player1Label!.innerText = Player1.name + ": " + Player1.score;
